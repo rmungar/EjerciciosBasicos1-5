@@ -1,5 +1,17 @@
 
-class person(var peso: Double, var altura: Double){
+class person(peso: Double, altura: Double){
+
+    var peso: Double = 0.0
+        set(value){
+            comprobarPeso(value)
+            field = value
+        }
+
+    var altura: Double = 0.0
+        set(value){
+            comprobarAltura(value)
+            field = value
+        }
 
     var nombre: String = ""
     var imc:Double = 0.00
@@ -11,6 +23,20 @@ class person(var peso: Double, var altura: Double){
         this.nombre = nombre
     }
 
+    fun comprobarPeso(value: Double): Double{
+        if (value <= 0.0)
+            return 0.0
+        else{
+            return value
+        }
+    }
+    fun comprobarAltura(value:Double):Double{
+        if (value <= 0.0)
+            return 0.0
+        else{
+            return value
+        }
+    }
     fun cambiarNombre(){
         var nom = ""
         print("Ingresa el nuevo nombre: ")

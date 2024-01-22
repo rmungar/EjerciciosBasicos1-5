@@ -4,9 +4,10 @@ class coche(){
         return this.color
     }
     fun setColor(color: String){
-        if (color.isNotEmpty()){
+        if (color.isNotEmpty()&&color.isNotBlank()){
             this.color = color.lowercase()
         }
+        else throw NumberFormatException ("El color no puede ser nulo o estar vacío")
     }
     //------------------------------------------------------------------------------------------------------------------
     private var marca: String = ""
@@ -26,7 +27,7 @@ class coche(){
     }
     fun setModelo(modelo: String){
         if (modelo.isNotEmpty()){
-            this.modelo = modelo
+            this.modelo = modelo.replaceFirstChar { it -> it.uppercase() }
         }
     }
     //------------------------------------------------------------------------------------------------------------------
@@ -79,7 +80,7 @@ class coche(){
 fun main(){
     val coche1 = coche()
     coche1.setMarca("Seat")
-    coche1.setModelo("Ateca")
+    coche1.setModelo("ateca")
     coche1.setPuertas(4)
     coche1.setCaballos(60)
     coche1.setMatricula("7976 HSD")
@@ -87,7 +88,7 @@ fun main(){
     coche1.cambiarColor()
     val coche2 = coche()
     coche2.setMarca("Dodge")
-    coche2.setModelo("Charger")
+    coche2.setModelo("charger")
     coche2.setPuertas(2)
     coche2.setCaballos(700)
     coche2.setMatricula("7984 RTY")
